@@ -164,6 +164,7 @@ main()
    Jugador NJugador2 = Jugador('O');
    Tablero NTablero = Tablero();
    Juego NJuego = Juego("TTT", NTablero, NJugador1, NJugador2);
+   Jugador * GJugador;
    int pos;
    char turno = NJugador1.Identificador;
 
@@ -185,7 +186,29 @@ main()
 
         }
 
+        GJugador = NJuego.Ganador();
+        if(GJugador != NULL)
+        {
+            break;
+        }
+
+
     }  while(PermiteMovimiento(NJuego));
-    
-       
+
+    if(GJugador == NULL)
+    {
+        cout << "Empate";
+    }
+    else if(GJugador->Identificador == NJugador1.Identificador)
+    {
+        cout << "Jugador 1 ganador";
+    }
+    else if(GJugador->Identificador == NJugador2.Identificador)
+    {
+        cout << "Jugador 2 ganador";
+    }
+    else 
+    {
+        cout << "BOOM";
+    }      
 }
