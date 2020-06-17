@@ -37,8 +37,28 @@ bool Tablero::Pintar (char id, int i)
 }
 
 char Tablero::ComprobarSequencia() {
+   for(int i=0; i < 3; i++)
+    {
+        int j = i * 3;
+        if(Espacio[j] == Espacio[j+1] && Espacio[j] == Espacio[j+2])
+        {
+            return Espacio[j];
+        }
+        else if (Espacio[i] == Espacio[i+3] && Espacio[i] == Espacio[i+6])
+        {
+            return Espacio[i];
+        }
+    }
+    if(Espacio[0] == Espacio[4] && Espacio[4] == Espacio[8])
+    {
+        return Espacio[0];
+    }
+     if(Espacio[2] == Espacio[4] && Espacio[4] == Espacio[6])
+    {
+        return Espacio[2];
+    }
+return ' ';
 
-    return 'x';
 }
 
 void Tablero::Refrescar()
