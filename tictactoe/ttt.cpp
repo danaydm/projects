@@ -115,7 +115,7 @@ public:
     Jugador Jugador1;
     Jugador Jugador2;
     string Name;
-    Jugador Ganador();
+    Jugador* Ganador();
 };
 
 Juego::Juego() {}
@@ -132,9 +132,18 @@ Juego::~Juego()
 {
 }
 
-Jugador Juego::Ganador()
+Jugador * Juego::Ganador()
 {
-  return Jugador1;
+  if(Jugador1.Identificador == Tablero1.ComprobarSequencia())
+  {
+      return &Jugador1;
+  }
+  if(Jugador2.Identificador == Tablero1.ComprobarSequencia())
+  {
+      return &Jugador2;
+  }
+  
+  return NULL;
 }
 
 bool PermiteMovimiento(Juego juego) {
